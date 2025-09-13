@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 </head>
 <body style="margin:0">
+  <div class="desktopsize">
   <img src = './assets/image.png' width="100%" alt = 'My GitHub Website'>
+
+  </div>
+  <div class="mobilesize">
+  <img src = './assets/image.png' width="100%" alt = 'My GitHub Website'>
+  </div>
 </body>
 </html>
 <script type='text/javascript'>
@@ -31,5 +37,22 @@
 
   .embeddedMessagingFrame.eswIsDesktop.isMaximized{
 width: 100%;
+  }
+  .mobilesize{
+      display: none;
+    }
+
+     .desktopsize{
+      display: block;
+    }
+
+  @media only screen and (max-width: 768px) {
+    .mobilesize{
+      display: block;
+    }
+
+     .desktopsize{
+      display: none;
+    }
   }
 </style>
