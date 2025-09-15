@@ -23,7 +23,11 @@
 
 function sandeepclick(){
   alert('Sandeep Clicked');
-embeddedservice_bootstrap.utilAPI.sendTextMessage('Hi How are you?');
+
+   embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
+     embeddedservice_bootstrap.utilAPI.sendTextMessage('Hi How are you?');
+
+   });
 }
 
 
