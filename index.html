@@ -12,9 +12,21 @@
   <div class="mobilesize">
   <img src = './assets/imagephone.png' width="100%" alt = 'My GitHub Website'>
   </div>
+
+  <div onclick="sandeepclick()">
+     SANDEEP ON CLICK
+
+  </div>
 </body>
 </html>
 <script type='text/javascript'>
+
+function sandeepclick(){
+  alert('Sandeep Clicked');
+embeddedservice_bootstrap.utilAPI.sendTextMessage('Hi How are you?');
+}
+
+
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
