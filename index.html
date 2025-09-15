@@ -23,48 +23,48 @@
       <div>
         <input id="agentInput" class="input-agent" type="text" onchange="handleChange(this.value)"
           placeholder="Conviva Agent is an AI Agent that can answer your support questions and connect you with support experts." />
-        <svg class="arrow-icon" viewBox="0 0 24 24" onclick="handleArrowClick()">
-          <path class="arrow-up" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-        </svg>
       </div>
     </div>
   </div>
   <div class="embeddedservicecontainer">
+    <script type='text/javascript'>
+      document.getElementById("agentInput").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          console.log("Enter pressed! Value:", e.target.value);
+          // do something here
+        }
+      });
+      function sandeepclick() {
+        alert('Sandeep Clicked');
+
+        embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
+          embeddedservice_bootstrap.utilAPI.sendTextMessage('Hi How are you?');
+
+        });
+      }
+      function initEmbeddedMessaging() {
+        try {
+          embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+          embeddedservice_bootstrap.init(
+            '00DKj00000UY7YZ',
+            'truffleconvivademo',
+            'https://tr1755503902062.my.site.com/ESWtruffleconvivademo1757709090090',
+            {
+              scrt2URL: 'https://tr1755503902062.my.salesforce-scrt.com'
+            }
+          );
+        } catch (err) {
+          console.error('Error loading Embedded Messaging: ', err);
+        }
+      };
+
+    </script>
     <script type='text/javascript'
       src='https://tr1755503902062.my.site.com/ESWtruffleconvivademo1757709090090/assets/js/bootstrap.min.js'
-      onload='initEmbeddedMessaging()'>
-        document.getElementById("agentInput").addEventListener("keydown", function (e) {
-          if (e.key === "Enter") {
-            console.log("Enter pressed! Value:", e.target.value);
-            // do something here
-          }
-        });
-        function sandeepclick() {
-          alert('Sandeep Clicked');
+      onload='initEmbeddedMessaging()'></script>
 
-          embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
-            embeddedservice_bootstrap.utilAPI.sendTextMessage('Hi How are you?');
 
-          });
-        }
-        function initEmbeddedMessaging() {
-          try {
-            embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-            embeddedservice_bootstrap.init(
-              '00DKj00000UY7YZ',
-              'truffleconvivademo',
-              'https://tr1755503902062.my.site.com/ESWtruffleconvivademo1757709090090',
-              {
-                scrt2URL: 'https://tr1755503902062.my.salesforce-scrt.com'
-              }
-            );
-          } catch (err) {
-            console.error('Error loading Embedded Messaging: ', err);
-          }
-        };
-
-      </script>
   </div>
   <div onclick="sandeepclick()">
     SANDEEP ON CLICK
@@ -124,10 +124,5 @@
   .input-agent {
     width: 61.5%;
     height: 30px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    box-sizing: border-box;
-    border: 2px solid #e1e5e9;
-    border-radius: 8px;
   }
 </style>
