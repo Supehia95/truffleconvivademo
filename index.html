@@ -30,18 +30,20 @@
     <script type='text/javascript'>
       document.getElementById("agentInput").addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
-          console.log("Enter pressed! Value:", e.target.value);
-          // do something here
+          embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
+            embeddedservice_bootstrap.utilAPI.sendTextMessage(e.target.value);
+
+          });
         }
       });
-      function sandeepclick() {
+      /*function sandeepclick() {
         alert('Sandeep Clicked');
 
         embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
           embeddedservice_bootstrap.utilAPI.sendTextMessage('Hi How are you?');
 
         });
-      }
+      }*/
       function initEmbeddedMessaging() {
         try {
           embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
