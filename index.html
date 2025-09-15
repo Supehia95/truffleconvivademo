@@ -28,10 +28,9 @@
   </div>
   <div class="embeddedservicecontainer">
     <script type='text/javascript'>
-      document.getElementById('embeddedMessagingFrame').style.display='none';
+      document.getElementById('embedded-messaging').style.display='none';
       document.getElementById("agentInput").addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
-          document.getElementById('embeddedMessagingFrame').style.display='display';
           embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
             embeddedservice_bootstrap.utilAPI.sendTextMessage(e.target.value);
 
