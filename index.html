@@ -1,76 +1,91 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>My GitHub Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 </head>
+
 <body style="margin:0">
   <div class="desktopsize">
-  <img src = './assets/image.png' width="100%" alt = 'My GitHub Website'>
-
+    <img src='./assets/image.png' width="100%" alt='My GitHub Website'>
   </div>
   <div class="mobilesize">
-  <img src = './assets/imagephone.png' width="100%" alt = 'My GitHub Website'>
+    <img src='./assets/imagephone.png' width="100%" alt='My GitHub Website'>
   </div>
-<div class="embeddedservicecontainer">
-<script type='text/javascript'>
+  <div class="agentforce-container">
+    <div>
+      <span>How can </span>
+      <span>Conviva Agent</span>
+      <span> help?</span>
+    </div>
+    <div>
+      <input type="text"
+        placeholder="Conviva Agent is an AI Agent that can answer your support questions and connect you with support experts." />
+    </div>
+  </div>
+  <div class="embeddedservicecontainer">
+    <script type='text/javascript'>
 
-function sandeepclick(){
-  alert('Sandeep Clicked');
+      function sandeepclick() {
+        alert('Sandeep Clicked');
 
-   embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
-     embeddedservice_bootstrap.utilAPI.sendTextMessage('Hi How are you?');
+        embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
+          embeddedservice_bootstrap.utilAPI.sendTextMessage('Hi How are you?');
 
-   });
-}
-
-
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			embeddedservice_bootstrap.init(
-				'00DKj00000UY7YZ',
-				'truffleconvivademo',
-				'https://tr1755503902062.my.site.com/ESWtruffleconvivademo1757709090090',
-				{
-					scrt2URL: 'https://tr1755503902062.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-</script>
-<script type='text/javascript' src='https://tr1755503902062.my.site.com/ESWtruffleconvivademo1757709090090/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+        });
+      }
 
 
-</div>
+      function initEmbeddedMessaging() {
+        try {
+          embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+          embeddedservice_bootstrap.init(
+            '00DKj00000UY7YZ',
+            'truffleconvivademo',
+            'https://tr1755503902062.my.site.com/ESWtruffleconvivademo1757709090090',
+            {
+              scrt2URL: 'https://tr1755503902062.my.salesforce-scrt.com'
+            }
+          );
+        } catch (err) {
+          console.error('Error loading Embedded Messaging: ', err);
+        }
+      };
+    </script>
+    <script type='text/javascript'
+      src='https://tr1755503902062.my.site.com/ESWtruffleconvivademo1757709090090/assets/js/bootstrap.min.js'
+      onload='initEmbeddedMessaging()'></script>
+
+
+  </div>
   <div onclick="sandeepclick()">
-     SANDEEP ON CLICK
+    SANDEEP ON CLICK
 
   </div>
 </body>
+
 </html>
 <style>
-
-  .embeddedMessagingFrame.eswIsDesktop.isMaximized{
-width: 100%;
+  .embeddedMessagingFrame.eswIsDesktop.isMaximized {
+    width: 100%;
   }
-  .mobilesize{
-      display: none;
-    }
 
-     .desktopsize{
-      display: block;
-    }
+  .mobilesize {
+    display: none;
+  }
+
+  .desktopsize {
+    display: block;
+  }
 
   @media only screen and (max-width: 768px) {
-    .mobilesize{
+    .mobilesize {
       display: block;
     }
 
-     .desktopsize{
+    .desktopsize {
       display: none;
     }
   }
