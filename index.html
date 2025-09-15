@@ -48,7 +48,7 @@
       }
       function doCallAgentforce(value) {
         embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
-          embeddedservice_bootstrap.utilAPI.sendTextMessage(e.target.value);
+          embeddedservice_bootstrap.utilAPI.sendTextMessage(value);
         });
       }
       function initEmbeddedMessaging() {
