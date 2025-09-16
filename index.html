@@ -14,7 +14,7 @@
     <div id="convivaBodyImageId"
       style="background-image: url('./assets/convivaBody.png'); background-repeat: no-repeat; height: 445px; background-position: center;">
     </div>
-    <div class="agentforce-subcontainer">
+    <div id="agentsubcontainerId" class="agentforce-subcontainer">
       <div class="agent-helpcontainer">
         <span class="agent-helpFont">How can </span>
         <span class="agent-convivaFont">Conviva Agent</span>
@@ -55,6 +55,10 @@
         const bodyDiv = document.getElementById("convivaBodyImageId");
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBackground.png')";
+        }
+        const searchInputDiv = document.getElementById("agentsubcontainerId");
+        if (searchInputDiv) {
+          bodyDiv.style.visibility = 'hidden';
         }
         embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
           embeddedservice_bootstrap.utilAPI.sendTextMessage(value);
