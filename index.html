@@ -96,7 +96,7 @@
           window.addEventListener('onEmbeddedMessagingReady', function (event) {
             
             console.log("Embedded Messaging Window Ready");
-            //myOnMinimizeFunction();
+            myOnMaximizeFunction();
           });
           window.addEventListener("onEmbeddedMessagingClosed", function (event) {
             console.log("Chat window onEmbeddedMessagingClosed");
@@ -144,8 +144,8 @@
   .embeddedMessagingFrame.eswIsDesktop.isMaximized {
     width: 75%;
     position: absolute;
-    bottom: 15%;
-    right: 13%;
+    margin: 0 10%;
+    top: 20%;
   }
 
   .mobilesize {
