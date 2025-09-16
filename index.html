@@ -57,9 +57,7 @@
           bodyDiv.style.backgroundImage = "url('./assets/convivaBackground.png')";
         }
         const searchInputDiv = document.getElementById("agentsubcontainerId");
-        console.log('asdbkjsabds', searchInputDiv);
         if (searchInputDiv) {
-          console.log('asdbkjsabds111');
           bodyDiv.style.visibility = "hidden";
         }
         embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
@@ -81,7 +79,7 @@
           // Add event listeners for minimize/maximize
           window.addEventListener('onEmbeddedMessagingWindowMinimized', function (event) {
             console.log("Embedded Messaging Window Minimized");
-            onChatMinimized();
+            myOnMinimizeFunction();
           });
         } catch (err) {
           console.error('Error loading Embedded Messaging: ', err);
