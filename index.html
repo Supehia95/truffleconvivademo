@@ -56,10 +56,10 @@
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBackground.png')";
         }
-        const searchInputDiv = document.getElementById("agentsubcontainerId");
+        /*const searchInputDiv = document.getElementById("agentsubcontainerId");
         if (searchInputDiv) {
           bodyDiv.style.visibility = "hidden";
-        }
+        }*/
         embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
           embeddedservice_bootstrap.utilAPI.sendTextMessage(value);
         });
