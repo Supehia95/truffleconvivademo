@@ -14,7 +14,7 @@
     <div id="convivaBodyImageId"
       style="background-image: url('./assets/convivaBody.png'); background-repeat: no-repeat; height: 445px; background-position: center;">
     </div>
-    <div id="agentsubcontainerId" class="agentforce-subcontainer" style="visibility: visible;">
+    <div id="agentsubcontainerId" class="agentforce-subcontainer">
       <div class="agent-helpcontainer">
         <span class="agent-helpFont">How can </span>
         <span class="agent-convivaFont">Conviva Agent</span>
@@ -56,10 +56,10 @@
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBackground.png')";
         }
-        /*const searchInputDiv = document.getElementById("agentsubcontainerId");
+        const searchInputDiv = document.getElementById("agentsubcontainerId");
         if (searchInputDiv) {
-          bodyDiv.style.visibility = "hidden";
-        }*/
+          searchInputDiv.style.visibility = "hidden";
+        }
         embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
           embeddedservice_bootstrap.utilAPI.sendTextMessage(value);
         });
@@ -81,6 +81,10 @@
             console.log("Embedded Messaging Window Minimized");
             myOnMinimizeFunction();
           });
+          window.addEventListener('onEmbeddedMessagingWindowMaximized', function (event) {
+            console.log("Embedded Messaging Window Maximized");
+            myOnMaximizeFunction();
+          });
         } catch (err) {
           console.error('Error loading Embedded Messaging: ', err);
         }
@@ -90,12 +94,20 @@
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBody.png')";
         }
+        const searchInputDiv = document.getElementById("agentsubcontainerId");
+        if (searchInputDiv) {
+          searchInputDiv.style.visibility = "visible";
+        }
       }
 
       function myOnMaximizeFunction() {
         const bodyDiv = document.getElementById("convivaBodyImageId");
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBackground.png')";
+        }
+        const searchInputDiv = document.getElementById("agentsubcontainerId");
+        if (searchInputDiv) {
+          searchInputDiv.style.visibility = "visible";
         }
       }
     </script>
