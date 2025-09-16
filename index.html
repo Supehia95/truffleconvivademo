@@ -62,7 +62,10 @@
           if (searchInputDiv) {
             searchInputDiv.style.visibility = "hidden";
           }
-          window.scrollTo(0, 0);
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         });
       }
       function initEmbeddedMessaging() {
@@ -86,13 +89,13 @@
             console.log("Embedded Messaging Window Maximized");
             myOnMaximizeFunction();
           });
-           window.addEventListener("onEmbeddedMessagingConversationClosed", function (event) {
+          /*window.addEventListener("onEmbeddedMessagingConversationClosed", function (event) {
             console.log("Chat window closed");
             myOnMinimizeFunction();
-          }); 
-            window.addEventListener('onEmbeddedMessagingReady', function (event) {
+          });*/
+          window.addEventListener('onEmbeddedMessagingReady', function (event) {
             console.log("Embedded Messaging Window Ready");
-            myOnMaximizeFunction();
+            myOnMinimizeFunction();
           });
           window.addEventListener("onEmbeddedMessagingClosed", function (event) {
             console.log("Chat window onEmbeddedMessagingClosed");
@@ -222,9 +225,4 @@
     width: 100%;
     justify-content: center;
   }
-
-  window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-  });
 </style>
