@@ -14,6 +14,7 @@
     <div id="convivaBodyImageId"
       style="background-image: url('./assets/convivaBody.png'); background-repeat: no-repeat; height: 445px; background-position: center;">
     </div>
+    <div class="chatview" id="chatview" onclick="handleChatView()">chatview</div>
     <div id="agentsubcontainerId" class="agentforce-subcontainer">
       <div class="agent-helpcontainer">
         <span class="agent-helpFont">How can </span>
@@ -116,19 +117,44 @@
           bodyDiv.style.backgroundImage = "url('./assets/convivaBody.png')";
         }
         const searchInputDiv = document.getElementById("agentsubcontainerId");
+        const chatView = document.getElementById("chatview");
+
         if (searchInputDiv) {
           searchInputDiv.style.visibility = "visible";
+          chatView.style.visibility = "hidden";
         }
       }
 
       function myOnMaximizeFunction() {
         const bodyDiv = document.getElementById("convivaBodyImageId");
+        const chatView = document.getElementById("chatview");
+
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBackground.png')";
         }
         const searchInputDiv = document.getElementById("agentsubcontainerId");
         if (searchInputDiv) {
           searchInputDiv.style.visibility = "hidden";
+          chatView.style.visibility = "visible";
+
+        }
+      }
+      function handleChatView() {
+        const chatView = document.getElementById("chatview");
+        if (chatView) {
+          chatView.style.visibility = "hidden";
+        }
+        const agentIcon = document.getElementById("embeddedMessagingFrame");
+        if (agentIcon) {
+          agentIcon.style.width= 'var(--eswWidth, 320px)';
+          agentIcon.style.margin= 0;
+          agentIcon.style.top= 'inherit';
+        }
+        const searchInputDiv = document.getElementById("agentsubcontainerId");
+        if (searchInputDiv) {
+          searchInputDiv.style.visibility = "visible";
+         
+
         }
       }
     </script>
@@ -225,5 +251,15 @@
     display: inline-flex;
     width: 100%;
     justify-content: center;
+  }
+  .chatview{
+    width: 75%;
+    position: absolute;
+    margin: 0 10%;
+    top: 22%;
+    color: white;
+    z-index: 999999999999;
+    text-align: right;
+    visibility: hidden;
   }
 </style>
