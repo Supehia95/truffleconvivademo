@@ -14,7 +14,7 @@
     <div id="convivaBodyImageId"
       style="background-image: url('./assets/convivaBody.png'); background-repeat: no-repeat; height: 445px; background-position: center;">
     </div>
-    <div id="agentsubcontainerId" class="agentforce-subcontainer">
+    <div id="agentsubcontainerId" class="agentforce-subcontainer" style="visibility: visible;">
       <div class="agent-helpcontainer">
         <span class="agent-helpFont">How can </span>
         <span class="agent-convivaFont">Conviva Agent</span>
@@ -57,7 +57,7 @@
           bodyDiv.style.backgroundImage = "url('./assets/convivaBackground.png')";
         }
         const searchInputDiv = document.getElementById("agentsubcontainerId");
-        console.log('asdbkjsabds',searchInputDiv);
+        console.log('asdbkjsabds', searchInputDiv);
         if (searchInputDiv) {
           console.log('asdbkjsabds111');
           bodyDiv.style.visibility = "hidden";
@@ -78,14 +78,10 @@
               scrt2URL: 'https://tr1755503902062.my.salesforce-scrt.com'
             }
           );
-          embeddedservice_bootstrap.addEventHandler("MINIMIZED", function () {
-            console.log("Chat minimized");
-            myOnMinimizeFunction();
-          });
-
-          embeddedservice_bootstrap.addEventHandler("MAXIMIZED", function () {
-            console.log("Chat maximized");
-            myOnMaximizeFunction();
+          // Add event listeners for minimize/maximize
+          window.addEventListener('onEmbeddedMessagingWindowMinimized', function (event) {
+            console.log("Embedded Messaging Window Minimized");
+            onChatMinimized();
           });
         } catch (err) {
           console.error('Error loading Embedded Messaging: ', err);
