@@ -7,12 +7,12 @@
 </head>
 
 <body style="margin:0">
-  <div>
-    <div style="background-image: url('../assets/convivaHeader.png'); background-repeat: no-repeat;"></div>
+  <div class="agentforce-container">
+    <div style="background-image: url('./assets/convivaHeader.png'); background-repeat: no-repeat; height:125px; background-position: center;"></div>
     <div id="convivaBodyImageId"
-      style="background-image: url('../assets/convivaBody.png'); background-repeat: no-repeat;"></div>
-    <div style="background-image: url('../assets/imagenew.png'); background-repeat: no-repeat;"></div>
-    <div style="background-image: url('../assets/convivaFooter.png'); background-repeat: no-repeat;"></div>
+      style="background-image: url('./assets/convivaBody.png'); background-repeat: no-repeat; height: 445px; background-position: center;"></div>
+    <div></div>
+    <div style="background-image: url('./assets/convivaFooter.png'); background-repeat: no-repeat; height: 125px; background-position: center;"></div>
   </div>
   <div class="embeddedservicecontainer">
     <script type='text/javascript'>
@@ -64,15 +64,12 @@
     bottom: 15%;
     right: 13%;
   }
-
   .mobilesize {
     display: none;
   }
-
   .desktopsize {
     display: block;
   }
-
   @media only screen and (max-width: 768px) {
     .mobilesize {
       display: block;
@@ -82,8 +79,10 @@
       display: none;
     }
   }
-
   .embeddedMessagingConversationButtonWrapper .embeddedMessagingConversationButton {
     visibility: hidden;
+  }
+  .agentforce-container{
+    background-color: #001f34;
   }
 </style>
