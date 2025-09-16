@@ -86,12 +86,16 @@
             console.log("Embedded Messaging Window Maximized");
             myOnMaximizeFunction();
           });
-          /*window.addEventListener("onEmbeddedMessagingConversationClosed", function (event) {
+           window.addEventListener("onEmbeddedMessagingConversationClosed", function (event) {
             console.log("Chat window closed");
             myOnMinimizeFunction();
-          });*/
+          }); 
+            window.addEventListener('onEmbeddedMessagingReady', function (event) {
+            console.log("Embedded Messaging Window Ready");
+            myOnMaximizeFunction();
+          });
           window.addEventListener("onEmbeddedMessagingClosed", function (event) {
-            console.log("Chat window closed");
+            console.log("Chat window onEmbeddedMessagingClosed");
             myOnMinimizeFunction();
           });
           const agentIcon = document.getElementById("embeddedMessagingFrame");
