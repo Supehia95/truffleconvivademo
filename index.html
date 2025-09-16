@@ -89,9 +89,9 @@
             console.log("Chat window closed");
             myOnMinimizeFunction();
           });
-          const agentIcon = document.getElementById("embeddedMessagingFrame"); 
-          if (agentIcon) { 
-            agentIcon.style.visibility = 'hidden'; 
+          const agentIcon = document.getElementById("embeddedMessagingFrame");
+          if (agentIcon) {
+            agentIcon.style.visibility = 'hidden';
           }
         } catch (err) {
           console.error('Error loading Embedded Messaging: ', err);
@@ -156,7 +156,12 @@
   .embeddedMessagingConversationButtonWrapper .embeddedMessagingConversationButton {
     visibility: hidden;
   }
-  .embeddedMessagingFrame .eswIsDesktop .isMinimized{
+
+  .embedded-messaging>.embeddedMessagingFrame[class~="isMinimized"] {
+    visibility: hidden;
+  }
+
+  .embeddedMessagingFrame .eswIsDesktop .isMinimized {
     visibility: hidden;
   }
 
