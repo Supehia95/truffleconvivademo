@@ -140,6 +140,10 @@
         }
       }
       function handleChatView() {
+         const bodyDiv = document.getElementById("convivaBodyImageId");
+        if (bodyDiv) {
+          bodyDiv.style.backgroundImage = "url('./assets/convivaBody.png')";
+        }
         const chatView = document.getElementById("chatview");
         if (chatView) {
           chatView.style.visibility = "hidden";
