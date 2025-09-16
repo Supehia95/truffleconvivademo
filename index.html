@@ -85,6 +85,10 @@
             console.log("Embedded Messaging Window Maximized");
             myOnMaximizeFunction();
           });
+          window.addEventListener("onEmbeddedMessagingConversationClosed", function (event) {
+            console.log("Chat window closed");
+            myOnMinimizeFunction();
+          });
         } catch (err) {
           console.error('Error loading Embedded Messaging: ', err);
         }
