@@ -20,7 +20,7 @@
         <span class="agent-convivaFont">Conviva Agent</span>
         <span class="agent-helpFont"> help?</span>
       </div>
-      <div>
+      <div class="agent-input-search-container"> 
         <div class="agent-input-container">
           <input id="agentInput" class="agent-input-font" type="text"
             placeholder="Conviva Agent is an AI Agent that can answer your support questions and connect you with support experts.">
@@ -160,6 +160,7 @@
   .agentforce-subcontainer {
     font-family: sans-serif;
     text-align: center;
+    padding: 0 10%;
   }
 
   .agent-helpcontainer {
@@ -177,7 +178,7 @@
   }
 
   .agent-input-font {
-    height: 28px;
+    height: 40px;
     font-size: 18px;
     width: 100%;
   }
@@ -193,12 +194,18 @@
     background-color: #ffffff;
     border-radius: 0px 2px 2px 0px;
     margin-left: -6px;
-    padding: 4.2px 6px 6.2px 4px;
+    padding: 14.2px 6px 6.2px 4px;
     border: 1px solid #767676;
     border-left: none;
   }
 
   .agent-input-container input:focus-visible {
     outline: none;
+  }
+
+  .agent-input-search-container{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
   }
 </style>
