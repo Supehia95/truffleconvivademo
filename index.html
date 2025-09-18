@@ -14,7 +14,7 @@
     <div id="convivaBodyImageId"
       style="background-image: url('./assets/convivaBody.png'); background-repeat: no-repeat; height: 445px; background-position: center;">
     </div>
-    <div class="chatview" id="chatview" onclick="handleChatView()">chatview</div>
+    <!--<div class="chatview" id="chatview" onclick="handleChatView()">chatview</div>-->
     <div id="agentsubcontainerId" class="agentforce-subcontainer">
       <div class="agent-helpcontainer">
         <span class="agent-helpFont">How can </span>
@@ -53,21 +53,6 @@
       }
       function doCallAgentforce(value) {
         embeddedservice_bootstrap.utilAPI.launchChat();
-        /*embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
-          embeddedservice_bootstrap.utilAPI.sendTextMessage(value);
-          const bodyDiv = document.getElementById("convivaBodyImageId");
-          if (bodyDiv) {
-            bodyDiv.style.backgroundImage = "url('./assets/convivaBackground.png')";
-          }
-          const searchInputDiv = document.getElementById("agentsubcontainerId");
-          if (searchInputDiv) {
-            searchInputDiv.style.visibility = "hidden";
-          }
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        });*/
       }
       function initEmbeddedMessaging() {
         try {
@@ -104,12 +89,8 @@
               if (inputDocument && inputDocument.value) {
                 embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
               }
-            }, 10000)
+            }, 10000);
           });
-          const agentIcon = document.getElementById("embeddedMessagingFrame");
-          if (agentIcon) {
-            agentIcon.style.visibility = 'hidden';
-          }
         } catch (err) {
           console.error('Error loading Embedded Messaging: ', err);
         }
@@ -142,7 +123,7 @@
 
         }
       }
-      function handleChatView() {
+      /*function handleChatView() {
         const bodyDiv = document.getElementById("convivaBodyImageId");
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBody.png')";
@@ -163,7 +144,7 @@
 
 
         }
-      }
+      }*/
     </script>
     <script type='text/javascript'
       src='https://tr1755503902062.my.site.com/ESWtruffleconvivademo1757709090090/assets/js/bootstrap.min.js'
@@ -174,6 +155,7 @@
 
 </html>
 <style>
+  /*
   .embeddedMessagingFrame.eswIsDesktop.isMaximized {
     width: 75%;
     position: absolute;
@@ -201,7 +183,7 @@
 
   .embeddedMessagingConversationButtonWrapper .embeddedMessagingConversationButton {
     visibility: hidden;
-  }
+  }*/
 
   .agentforce-container {
     background-color: #001b2e;
