@@ -92,18 +92,20 @@
             myOnMinimizeFunction();
           });
           window.addEventListener('onEmbeddedMessagingFirstBotMessageSent', function (event) {
-            isFirst = true;
-            let inputDocument = document.getElementById("agentInput");
-            if (inputDocument && inputDocument.value) {
-              embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
-            }
-            window.removeEventListener('onEmbeddedMessagingFirstBotMessageSent');
+            //isFirst = true;
+            setTimeout(() => {
+              let inputDocument = document.getElementById("agentInput");
+              if (inputDocument && inputDocument.value) {
+                embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
+              }
+              window.removeEventListener('onEmbeddedMessagingFirstBotMessageSent');
+            }, 5000);
           });
           window.addEventListener('onEmbeddedMessagingConversationStarted', function (event) {
             console.log('onEmbeddedMessagingConversationStarted');
-            setTimeout(()=>{
-              console.log('sadsad',isFirst);
-            },5000)
+            setTimeout(() => {
+              console.log('sadsad', isFirst);
+            }, 5000)
           });
           const agentIcon = document.getElementById("embeddedMessagingFrame");
           if (agentIcon) {
