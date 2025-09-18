@@ -92,14 +92,11 @@
             myOnMinimizeFunction();
           });
           window.addEventListener('onEmbeddedMessagingFirstBotMessageSent', function (event) {
-            //isFirst = true;
-            setTimeout(() => {
-              let inputDocument = document.getElementById("agentInput");
-              if (inputDocument && inputDocument.value) {
-                embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
-              }
-              window.removeEventListener('onEmbeddedMessagingFirstBotMessageSent');
-            }, 5000);
+            isFirst = true;
+            let inputDocument = document.getElementById("agentInput");
+            if (inputDocument && inputDocument.value) {
+              embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
+            }
           });
           window.addEventListener('onEmbeddedMessagingConversationStarted', function (event) {
             console.log('onEmbeddedMessagingConversationStarted');
