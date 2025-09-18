@@ -66,6 +66,10 @@
               scrt2URL: 'https://tr1755503902062.my.salesforce-scrt.com'
             }
           );
+          const agentIcon = document.getElementById("embeddedMessagingFrame");
+          if (agentIcon) {
+            agentIcon.style.visibility = 'hidden';
+          }
           /*window.addEventListener('onEmbeddedMessagingWindowMinimized', function (event) {
             myOnMinimizeFunction();
           });
