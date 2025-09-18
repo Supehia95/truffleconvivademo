@@ -66,8 +66,7 @@
               scrt2URL: 'https://tr1755503902062.my.salesforce-scrt.com'
             }
           );
-          // Add event listeners for minimize/maximize
-          window.addEventListener('onEmbeddedMessagingWindowMinimized', function (event) {
+          /*window.addEventListener('onEmbeddedMessagingWindowMinimized', function (event) {
             myOnMinimizeFunction();
           });
           window.addEventListener('onEmbeddedMessagingWindowMaximized', function (event) {
@@ -75,7 +74,7 @@
           });
           window.addEventListener('onEmbeddedMessagingReady', function (event) {
             myOnMinimizeFunction();
-          });
+          });*/
           window.addEventListener('onEmbeddedMessagingFirstBotMessageSent', function (event) {
             isFirst = true;
             let inputDocument = document.getElementById("agentInput");
@@ -85,17 +84,19 @@
           });
           window.addEventListener('onEmbeddedMessagingConversationStarted', function (event) {
             setTimeout(() => {
-              let inputDocument = document.getElementById("agentInput");
-              if (inputDocument && inputDocument.value) {
-                embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
+              if (!isFirst) {
+                let inputDocument = document.getElementById("agentInput");
+                if (inputDocument && inputDocument.value) {
+                  embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
+                }
               }
-            }, 10000);
+            }, 8000);
           });
         } catch (err) {
           console.error('Error loading Embedded Messaging: ', err);
         }
       };
-      function myOnMinimizeFunction() {
+      /*function myOnMinimizeFunction() {
         const bodyDiv = document.getElementById("convivaBodyImageId");
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBody.png')";
@@ -123,7 +124,7 @@
 
         }
       }
-      /*function handleChatView() {
+      function handleChatView() {
         const bodyDiv = document.getElementById("convivaBodyImageId");
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBody.png')";
