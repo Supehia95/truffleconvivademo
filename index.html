@@ -72,7 +72,7 @@
       function initEmbeddedMessaging() {
         try {
           embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
+          let isFirst = false;
           embeddedservice_bootstrap.init(
             '00DKj00000UY7YZ',
             'truffleconvivademo',
@@ -92,10 +92,18 @@
             myOnMinimizeFunction();
           });
           window.addEventListener('onEmbeddedMessagingFirstBotMessageSent', function (event) {
-            console.log('onEmbeddedMessagingFirstBotMessageSent');
+            isFirst = true;
+            let inputDocument = document.getElementById("agentInput");
+            if (inputDocument && inputDocument.value) {
+              embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
+            }
+            window.removeEventListener('onEmbeddedMessagingFirstBotMessageSent');
           });
           window.addEventListener('onEmbeddedMessagingConversationStarted', function (event) {
             console.log('onEmbeddedMessagingConversationStarted');
+            setTimeout(()=>{
+              console.log('sadsad',isFirst);
+            },5000)
           });
           const agentIcon = document.getElementById("embeddedMessagingFrame");
           if (agentIcon) {
