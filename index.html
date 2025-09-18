@@ -52,8 +52,8 @@
         }
       }
       function doCallAgentforce(value) {
-
-        embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
+        embeddedservice_bootstrap.utilAPI.launchChat();
+        /*embeddedservice_bootstrap.utilAPI.launchChat().then(() => {
           embeddedservice_bootstrap.utilAPI.sendTextMessage(value);
           const bodyDiv = document.getElementById("convivaBodyImageId");
           if (bodyDiv) {
@@ -67,7 +67,7 @@
             top: 0,
             behavior: 'smooth'
           });
-        });
+        });*/
       }
       function initEmbeddedMessaging() {
         try {
@@ -83,25 +83,19 @@
           );
           // Add event listeners for minimize/maximize
           window.addEventListener('onEmbeddedMessagingWindowMinimized', function (event) {
-            console.log("Embedded Messaging Window Minimized");
             myOnMinimizeFunction();
           });
           window.addEventListener('onEmbeddedMessagingWindowMaximized', function (event) {
-            console.log("Embedded Messaging Window Maximized");
             myOnMaximizeFunction();
           });
-          /*window.addEventListener("onEmbeddedMessagingConversationClosed", function (event) {
-            console.log("Chat window closed");
-            myOnMinimizeFunction();
-          });*/
           window.addEventListener('onEmbeddedMessagingReady', function (event) {
-            
-            console.log("Embedded Messaging Window Ready");
             myOnMinimizeFunction();
           });
-          window.addEventListener("onEmbeddedMessagingClosed", function (event) {
-            console.log("Chat window onEmbeddedMessagingClosed");
-            myOnMinimizeFunction();
+          window.addEventListener('onEmbeddedMessagingFirstBotMessageSent', function (event) {
+            console.log('onEmbeddedMessagingFirstBotMessageSent');
+          });
+          window.addEventListener('onEmbeddedMessagingConversationStarted', function (event) {
+            console.log('onEmbeddedMessagingConversationStarted');
           });
           const agentIcon = document.getElementById("embeddedMessagingFrame");
           if (agentIcon) {
@@ -140,7 +134,7 @@
         }
       }
       function handleChatView() {
-         const bodyDiv = document.getElementById("convivaBodyImageId");
+        const bodyDiv = document.getElementById("convivaBodyImageId");
         if (bodyDiv) {
           bodyDiv.style.backgroundImage = "url('./assets/convivaBody.png')";
         }
@@ -150,14 +144,14 @@
         }
         const agentIcon = document.getElementById("embeddedMessagingFrame");
         if (agentIcon) {
-          agentIcon.style.width= 'var(--eswWidth, 320px)';
-          agentIcon.style.margin= 0;
-          agentIcon.style.top= 'inherit';
+          agentIcon.style.width = 'var(--eswWidth, 320px)';
+          agentIcon.style.margin = 0;
+          agentIcon.style.top = 'inherit';
         }
         const searchInputDiv = document.getElementById("agentsubcontainerId");
         if (searchInputDiv) {
           searchInputDiv.style.visibility = "visible";
-         
+
 
         }
       }
@@ -256,8 +250,9 @@
     width: 100%;
     justify-content: center;
   }
-  .chatview{
-        position: absolute;
+
+  .chatview {
+    position: absolute;
     margin: 0 10%;
     top: 22%;
     color: white;
@@ -265,6 +260,6 @@
     text-align: right;
     visibility: hidden;
     right: 5%;
-        cursor: pointer;
+    cursor: pointer;
   }
 </style>
