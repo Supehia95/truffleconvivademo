@@ -99,10 +99,12 @@
             }
           });
           window.addEventListener('onEmbeddedMessagingConversationStarted', function (event) {
-            console.log('onEmbeddedMessagingConversationStarted');
             setTimeout(() => {
-              console.log('sadsad', isFirst);
-            }, 5000)
+              let inputDocument = document.getElementById("agentInput");
+              if (inputDocument && inputDocument.value) {
+                embeddedservice_bootstrap.utilAPI.sendTextMessage(inputDocument.value);
+              }
+            }, 10000)
           });
           const agentIcon = document.getElementById("embeddedMessagingFrame");
           if (agentIcon) {
